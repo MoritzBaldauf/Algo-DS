@@ -1,3 +1,6 @@
+
+# NOTE: I am ware that this code doesnt pass all unit test. I just run out of Ideas to find the mistake
+
 class MyMaze:
     def __init__(self, maze_str: str):
         if not maze_str:
@@ -16,7 +19,7 @@ class MyMaze:
 
         def explore(row, col, current_depth):
             if not (0 <= row < len(self._maze) and 0 <= col < len(self._maze[0])):
-                return  # Out of bounds
+                return  # Out of bounds check to prevent list index out of range error
 
             if self._maze[row][col] not in (' ', 'S'):
                 return  # Not walkable or already visited
@@ -37,7 +40,8 @@ class MyMaze:
             # Recursively explore neighboring cells
             for dr, dc in directions:
                 next_row, next_col = row + dr, col + dc
-                explore(next_row, next_col, current_depth + 1)
+                if 0 <= next_row < len(self._maze) and 0 <= next_col < len(self._maze[0]):
+                    explore(next_row, next_col, current_depth + 1)
 
         explore(start_row, start_col, depth + 1)
         return bool(self._exits)
@@ -52,3 +56,54 @@ class MyMaze:
 
     def __str__(self):
         return "\n".join("".join(row) for row in self._maze)
+
+# Testing with own maze
+"""
+def main():
+    maze_15x15 = """
+###############
+#      #      #
+### # ######  #
+#   # ####### #
+# ###         #
+#   #######   #
+### #  ##     #
+    # ##   #  #
+##         ## #
+##### ######  #
+#         ##  #
+# ########## ##
+#      ##  # ##
+#   ##       ##
+###############
+"""
+    maze_20x20 = """
+####################
+#      #      # S  #
+### # ######  #    #
+#   # ####### #    #
+# ###         #    #
+#   #######   #    #
+### #  ##     #    #
+#    # ##   #  #   #
+##         ## #    #
+##### ######  #    #
+#         ##  #    #
+# ########## ##    #
+#      ##  # ##    #
+#   ##       ##    #
+#     #### ###   ###
+#      ##          #
+#   ##             #
+#  #############   #
+#                  #
+######## ###########
+"""
+
+    maze1 = MyMaze(maze_15x15)
+
+
+if __name__ == "__main__":
+    main()
+
+"""
