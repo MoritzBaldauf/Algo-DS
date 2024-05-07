@@ -517,7 +517,7 @@ class UnitTestTemplate(unittest.TestCase):
                          ") for searching the last key of a given list in a BST with 1000000 values should be: " +
                          str(len(test_list)))
 
-    def test_runtime_comparison_assignment_example_bst_check(self): #TODO
+    def test_runtime_comparison_assignment_example_bst_check(self): #TODO Error in Unit test??
         test_list = [8, 17, 10, 3, 1]
         bst = create_bst_from_list(test_list)
         result = bst.find_comparison(3)
@@ -525,7 +525,7 @@ class UnitTestTemplate(unittest.TestCase):
             result[0]) + ") for searching key '3' in a BST base on the list sequence: 8,17,10,3,1. should be 3")
 
     # adapted because now if does not compare to the initial list, but to the in order list
-    def test_runtime_comparison_assignment_example_list_check(self): #TODO
+    def test_runtime_comparison_assignment_example_list_check(self):
         test_list = [8, 17, 10, 3, 1]
 
         bst = create_bst_from_list(test_list)
@@ -533,7 +533,7 @@ class UnitTestTemplate(unittest.TestCase):
         self.assertEqual(2, result[0], "runtimeComparison() returns wrong number of comparisons (" + str(
             result[1]) + ") for searching key '3' in a list base on the sequence: 8,17,10,3,1. should be 2")
 
-    def test_runtime_comparison_sorted_list(self): #TODO
+    def test_runtime_comparison_sorted_list(self): #TODO Error in Unit test??
         bst = BinarySearchTree()
         test_list = []
         num_keys = 10

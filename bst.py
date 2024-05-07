@@ -225,7 +225,7 @@ class BinarySearchTree:
         #python_list = list(node.key for node in self._preorder())
         list_comparisons = 0
         bst_comparisons = 0
-        python_list = list(node.key for node in self._preorder())
+        python_list = list(node.key for node in self._preorder(self._root))
         # Count comparisons in list
         for item in python_list:
             list_comparisons += 1
@@ -280,17 +280,8 @@ class BinarySearchTree:
     # You can of course add your own methods and/or functions!
     # (A method is within a class, a function outside of it.)
 
-
-arr_list_1 = [5, 18, 1, 8, 14, 16, 13, 3]
-
-"""def create_bst_from_list(list_):
-    bst_solution = BinarySearchTree()
-    for k in list_:
-        bst_solution.insert(key=k, value=str(k))
-    return bst_solution
-
-bst_solution = create_bst_from_list(arr_list_1)
-bst = BinarySearchTree(bst_solution.get_root())
-bst._size = bst_solution.size
-
-print(bst.find(18).depth)"""
+    def return_min_key(self) -> TreeNode:
+        current = self._root
+        while current and current.left:
+            current = current.left
+        return current
