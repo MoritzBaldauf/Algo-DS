@@ -229,7 +229,7 @@ class UnitTestTemplate(unittest.TestCase):
         with self.assertRaises(KeyError):
             bst.insert(key=1, value="1")
 
-    def test_insert_with_size(self): #TODO
+    def test_insert_with_size(self):
         bst = BinarySearchTree()
         bst.insert(key=5, value="5")
         self.assertEqual(1, bst.size, "ERROR: Tree size (" + str(
@@ -256,7 +256,7 @@ class UnitTestTemplate(unittest.TestCase):
         self.assertEqual(8, bst.size, "ERROR: Tree size (" + str(
             bst.size) + ") does not match the expected tree size (" + str(8) + ") after insert")
 
-    def test_insert_duplicates_with_size(self): #TODO
+    def test_insert_duplicates_with_size(self):
         bst = create_bst_from_list(arr_list_1)
         with self.assertRaises(KeyError):
             bst.insert(key=1, value="1")
@@ -272,7 +272,7 @@ class UnitTestTemplate(unittest.TestCase):
                                msg="ERROR: Tree does not raise an exception when an item with None key is inserted"):
             bst.insert(key=None, value="1")
 
-    def test_depth(self): #TODO
+    def test_depth(self):
         bst_solution = create_bst_from_list(arr_list_1)
         bst = BinarySearchTree(bst_solution.get_root())
         bst._size = bst_solution.size
@@ -326,7 +326,7 @@ class UnitTestTemplate(unittest.TestCase):
         with self.assertRaises(ValueError, msg="ERROR: find(None) did not raise an exception"):
             bst.find(None)
 
-    def test_remove(self): #TODO
+    def test_remove(self):
         bst = create_bst_from_list(arr_list_1)  # [5, 18, 1, 8, 14, 16, 13, 3]
 
         bst.remove(5)
@@ -348,7 +348,7 @@ class UnitTestTemplate(unittest.TestCase):
 
         self.assertIsNone(bst._root, "Incorrect tree after removing all values: " + self.print_tree(bst._root))
 
-    def test_remove_non_existing_key(self): #TODO
+    def test_remove_non_existing_key(self):
         bst_solution = create_bst_from_list(arr_list_1)
         bst = BinarySearchTree(bst_solution.get_root())
         bst._size = bst_solution.size
@@ -356,7 +356,7 @@ class UnitTestTemplate(unittest.TestCase):
                                              "sequence " + str(arr_list_1)):
             bst.remove(20)
 
-    def test_remove_none_key(self): #TODO
+    def test_remove_none_key(self):
         bst_solution = create_bst_from_list(arr_list_1)
         bst = BinarySearchTree(bst_solution.get_root())
         bst._size = bst.size
@@ -488,7 +488,7 @@ class UnitTestTemplate(unittest.TestCase):
                                                  f"for insert sequence {arr_list_1}")
 
     # note: this testcase might take around 30 seconds
-    def test_runtime_comparison_check_bst_with_pregen_list(self):
+    def test_runtime_comparison_check_bst_with_pregen_list(self): #TODO
         test_list = None
         try:
             test_list = create_list_from_file("testListWithoutDuplicates.txt")
@@ -502,7 +502,7 @@ class UnitTestTemplate(unittest.TestCase):
             result[0]) + ") for searching the last key of a given list in a BST with 1000000 values should be: 53")
 
     # note: this testcase might take around 30 seconds
-    def test_runtime_comparison_check_list_with_pregen_list(self):
+    def test_runtime_comparison_check_list_with_pregen_list(self): #TODO
         test_list = None
         try:
             test_list = create_list_from_file("testListWithoutDuplicates.txt")
@@ -517,7 +517,7 @@ class UnitTestTemplate(unittest.TestCase):
                          ") for searching the last key of a given list in a BST with 1000000 values should be: " +
                          str(len(test_list)))
 
-    def test_runtime_comparison_assignment_example_bst_check(self):
+    def test_runtime_comparison_assignment_example_bst_check(self): #TODO
         test_list = [8, 17, 10, 3, 1]
         bst = create_bst_from_list(test_list)
         result = bst.find_comparison(3)
@@ -525,7 +525,7 @@ class UnitTestTemplate(unittest.TestCase):
             result[0]) + ") for searching key '3' in a BST base on the list sequence: 8,17,10,3,1. should be 3")
 
     # adapted because now if does not compare to the initial list, but to the in order list
-    def test_runtime_comparison_assignment_example_list_check(self):
+    def test_runtime_comparison_assignment_example_list_check(self): #TODO
         test_list = [8, 17, 10, 3, 1]
 
         bst = create_bst_from_list(test_list)
@@ -533,7 +533,7 @@ class UnitTestTemplate(unittest.TestCase):
         self.assertEqual(2, result[0], "runtimeComparison() returns wrong number of comparisons (" + str(
             result[1]) + ") for searching key '3' in a list base on the sequence: 8,17,10,3,1. should be 2")
 
-    def test_runtime_comparison_sorted_list(self):
+    def test_runtime_comparison_sorted_list(self): #TODO
         bst = BinarySearchTree()
         test_list = []
         num_keys = 10
@@ -599,7 +599,7 @@ class UnitTestTemplate(unittest.TestCase):
         self.assertFalse(bst.is_valid,
                          "ERROR: is_valid returned True but should be False using tree: " + self.print_tree(root13))
 
-    def test_return_min_key(self):
+    def test_return_min_key(self): #TODO
         bst_solution = create_bst_from_list(arr_list_1)
         bst = BinarySearchTree(bst_solution.get_root())
         bst._size = bst_solution.size
