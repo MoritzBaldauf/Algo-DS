@@ -229,7 +229,7 @@ class UnitTestTemplate(unittest.TestCase):
         with self.assertRaises(KeyError):
             bst.insert(key=1, value="1")
 
-    def test_insert_with_size(self):
+    def test_insert_with_size(self): #TODO
         bst = BinarySearchTree()
         bst.insert(key=5, value="5")
         self.assertEqual(1, bst.size, "ERROR: Tree size (" + str(
@@ -256,7 +256,7 @@ class UnitTestTemplate(unittest.TestCase):
         self.assertEqual(8, bst.size, "ERROR: Tree size (" + str(
             bst.size) + ") does not match the expected tree size (" + str(8) + ") after insert")
 
-    def test_insert_duplicates_with_size(self):
+    def test_insert_duplicates_with_size(self): #TODO
         bst = create_bst_from_list(arr_list_1)
         with self.assertRaises(KeyError):
             bst.insert(key=1, value="1")
@@ -272,7 +272,7 @@ class UnitTestTemplate(unittest.TestCase):
                                msg="ERROR: Tree does not raise an exception when an item with None key is inserted"):
             bst.insert(key=None, value="1")
 
-    def test_depth(self):
+    def test_depth(self): #TODO
         bst_solution = create_bst_from_list(arr_list_1)
         bst = BinarySearchTree(bst_solution.get_root())
         bst._size = bst_solution.size
@@ -326,7 +326,7 @@ class UnitTestTemplate(unittest.TestCase):
         with self.assertRaises(ValueError, msg="ERROR: find(None) did not raise an exception"):
             bst.find(None)
 
-    def test_remove(self):
+    def test_remove(self): #TODO
         bst = create_bst_from_list(arr_list_1)  # [5, 18, 1, 8, 14, 16, 13, 3]
 
         bst.remove(5)
@@ -348,7 +348,7 @@ class UnitTestTemplate(unittest.TestCase):
 
         self.assertIsNone(bst._root, "Incorrect tree after removing all values: " + self.print_tree(bst._root))
 
-    def test_remove_non_existing_key(self):
+    def test_remove_non_existing_key(self): #TODO
         bst_solution = create_bst_from_list(arr_list_1)
         bst = BinarySearchTree(bst_solution.get_root())
         bst._size = bst_solution.size
@@ -356,7 +356,7 @@ class UnitTestTemplate(unittest.TestCase):
                                              "sequence " + str(arr_list_1)):
             bst.remove(20)
 
-    def test_remove_none_key(self):
+    def test_remove_none_key(self): #TODO
         bst_solution = create_bst_from_list(arr_list_1)
         bst = BinarySearchTree(bst_solution.get_root())
         bst._size = bst.size
