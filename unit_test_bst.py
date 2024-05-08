@@ -502,7 +502,7 @@ class UnitTestTemplate(unittest.TestCase):
             result[0]) + ") for searching the last key of a given list in a BST with 1000000 values should be: 53")
 
     # note: this testcase might take around 30 seconds
-    def test_runtime_comparison_check_list_with_pregen_list(self): #TODO
+    def test_runtime_comparison_check_list_with_pregen_list(self):
         test_list = None
         try:
             test_list = create_list_from_file("testListWithoutDuplicates.txt")
@@ -517,7 +517,7 @@ class UnitTestTemplate(unittest.TestCase):
                          ") for searching the last key of a given list in a BST with 1000000 values should be: " +
                          str(len(test_list)))
 
-    def test_runtime_comparison_assignment_example_bst_check(self): #TODO Error in Unit test??
+    def test_runtime_comparison_assignment_example_bst_check(self):
         test_list = [8, 17, 10, 3, 1]
         bst = create_bst_from_list(test_list)
         result = bst.find_comparison(3)
@@ -599,7 +599,7 @@ class UnitTestTemplate(unittest.TestCase):
         self.assertFalse(bst.is_valid,
                          "ERROR: is_valid returned True but should be False using tree: " + self.print_tree(root13))
 
-    def test_return_min_key(self): #TODO
+    def test_return_min_key(self):
         bst_solution = create_bst_from_list(arr_list_1)
         bst = BinarySearchTree(bst_solution.get_root())
         bst._size = bst_solution.size
@@ -607,13 +607,13 @@ class UnitTestTemplate(unittest.TestCase):
         res = bst.return_min_key().key
         self.assertEqual(1, res, f"ERROR: return_min_key returned wrong min key ({res}) but should be '1'")
 
-def test_return_max_key(self):
-    bst_solution = create_bst_from_list(arr_list_1)
-    bst = BinarySearchTree(bst_solution.get_root())
-    bst._size = bst_solution.size
+    def test_return_max_key(self):
+        bst_solution = create_bst_from_list(arr_list_1)
+        bst = BinarySearchTree(bst_solution.get_root())
+        bst._size = bst_solution.size
 
-    res = bst.return_max_key().key
-    self.assertEqual(18, res, f"ERROR: return_max_key returned wrong max key ({res}) but should be '9'")
+        res = bst.return_max_key().key
+        self.assertEqual(18, res, f"ERROR: return_max_key returned wrong max key ({res}) but should be '9'")
 
 if __name__ == "__main__":
     unittest.main()

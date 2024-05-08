@@ -222,20 +222,18 @@ class BinarySearchTree:
            finding the key both in the list and in the BST.
            Return the numbers of comparisons for both, the list and the BST
         """
-        #python_list = list(node.key for node in self._preorder())
+
         list_comparisons = 0
-        bst_comparisons = 0
+        bst_comparisons = 1
         python_list = list(node.key for node in self._preorder(self._root))
-        # Count comparisons in list
-        for item in python_list:
+        for item in python_list: # Check comparisons for list
             list_comparisons += 1
             if item == key:
                 break
         else:
             list_comparisons = float('inf')  # Key not found
 
-        # Count comparisons in BST
-        node = self._root
+        node = self._root # Comparisons in BST
         while node:
             bst_comparisons += 1
             if key < node.key:
@@ -245,7 +243,7 @@ class BinarySearchTree:
             else:
                 break
         else:
-            bst_comparisons = float('inf')  # Key not found
+            bst_comparisons = float('inf')  # Not found
 
         return (list_comparisons, bst_comparisons)
 
@@ -285,3 +283,14 @@ class BinarySearchTree:
         while current and current.left:
             current = current.left
         return current
+
+bst = BinarySearchTree()
+test_list = []
+num_keys = 10
+key = num_keys - 1
+
+for i in range(0, num_keys):
+    test_list.append(i)
+    bst.insert(key=i, value=str(i))
+result = bst.find_comparison(key)
+print(result)
