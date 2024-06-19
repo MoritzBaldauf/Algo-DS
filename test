@@ -1,0 +1,76 @@
+class RadixSort:
+    def __init__(self):
+        self.base = 7
+        self.bucket_list_history = []
+
+    def get_bucket_list_history(self):
+        return self.bucket_list_history
+
+    def sort(self, input_array):
+        """
+        Sorts a given list using radix sort in descending order
+        @param input_array to be sorted
+        @returns a sorted list
+        """
+
+        self.bucket_list_history.clear()  # clear history
+
+        digit_max = self.get_max_digits(input_array)  # len of the largest number
+
+        for digit in range(digit_max):
+            buckets = self._bucketSort(digit, input_array)  # Assign digit to bucket
+            input_array = self._merge(buckets)
+            self._add_bucket_list_to_history(buckets)  # add bucket to the history
+
+        return input_array
+
+
+
+    def _add_bucket_list_to_history(self, bucket_list):
+        """
+        This method creates a snapshot (clone) of the bucket list and adds it to the bucket list history.
+        @param bucket_list is your current bucket list, after assigning all elements to be sorted to the buckets.
+        """
+        clone = []
+        for i in range(0, len(bucket_list)):
+            clone.append([])
+            for j in bucket_list[i]:
+                clone[i].append(j)
+        self.bucket_list_history.append(clone)
+
+    def _bucketSort(self, pos, input_array):
+        buckets = [[] for _ in range(self.base)]  # creates a list of lists
+        for number in input_array:
+            bucket_index = self._get_digit(number, pos)  # checking the digit
+            buckets[-bucket_index-1].append(number)  # assigning the number according to it's digit
+        return buckets
+
+    def get_max_digits(self, input_array):
+        max_value = max(input_array)
+        # Determine the number of digits required in the specified base
+        max_digits = 0
+        while max_value > 0:
+            max_digits += 1
+            max_value //= 10  # using the base 10 to extract digits
+        return max_digits
+
+    def _get_digit(self, val, pos):
+        return (val // (10 ** pos)) % 10  # looking for a specific digit at the position
+
+    def _merge(self, buckets):
+        merged_list = []
+        for i in range(self.base):  # merging lists
+            merged_list.extend(buckets[i])
+        return merged_list
+
+    def _add_bucket_list_to_history(self, bucket_list):
+        """
+        This method creates a snapshot (clone) of the bucket list and adds it to the bucket list history.
+        @param bucket_list is your current bucket list, after assigning all elements to be sorted to the buckets.
+        """
+        arr_clone = []
+        for i in range(len(bucket_list)):
+            arr_clone.append([])
+            for j in bucket_list[i]:
+                arr_clone[i].append(j)
+        self.bucket_list_history.append(arr_clone)
