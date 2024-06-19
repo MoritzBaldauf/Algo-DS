@@ -67,8 +67,10 @@ class MinHeap:
     def down_heap(self, index: int): #maintiang heap property by moving a bigger element down in the heap
         while self.left_child(index) < self.size: # only process nodes that have children
             smallest = self.left_child(index) # assume smallest value is in left child -> save index
+
             if self.right_child(index) < self.size and self.heap[self.right_child(index)] < self.heap[smallest]: #chekc if right child is smaller than left child
                 smallest = self.right_child(index) # if true update smallest index
+
             if self.heap[smallest] >= self.heap[index]: # check if current node is corretly placed
                 break
             self.swap(index, smallest) # current node is smaller than child -> swap
